@@ -69,7 +69,7 @@ class Device:
 
 
 if __name__ == '__main__':
-    dev = Device('/dev/ttyACM0')
+    dev = Device('COM6')
     dev.initialize()
     sleep(1)
     print(dev.idn())
