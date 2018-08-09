@@ -70,7 +70,7 @@ class Device:
 
 if __name__ == '__main__':
 
-    dev = Device('COM9')
+    dev = Device('COM5')
 
     dev.initialize()
     sleep(1)
