@@ -1,3 +1,5 @@
+"""simple_daq.py
+"""
 import serial
 from time import sleep, time
 from general_functions import current_time as time
