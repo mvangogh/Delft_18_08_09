@@ -66,7 +66,7 @@ class Device:
 
 
 if __name__ == '__main__':
-    dev = Device('COM5')
+    dev = Device('COM9')
     dev.initialize()
     sleep(1)
     print(dev.idn())
