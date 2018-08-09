@@ -2,7 +2,7 @@
 """
 import serial
 from time import sleep, time
-from general_functions import current_time as time
+from general_functions import current_time as time		#this is bad to overwrite the previous time!
 
 
 class Device:
@@ -29,7 +29,6 @@ class Device:
 
     def get_analog_value(self, channel):
         message = 'IN:CH{}'.format(channel)
-        message = 'IN:CH6'
         return int(self.query(message))
 
     def set_analog_value(self, channel, value):
@@ -53,6 +52,10 @@ class Device:
             line += new_char
             if new_char == line_termination:
                 break
+
+            if time()-start_time > self.DEFAULTS['timeout']:
+                raise Exception('Device timed out')
+
             if time()-start_time > 1000*self.DEFAULTS['timeout']: # Time gives time in milliseconds
                 raise Exception('Device timed out')
 
