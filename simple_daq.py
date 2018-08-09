@@ -1,6 +1,6 @@
 import serial
 from time import sleep, time
-from general_functions import current_time as time
+#from general_functions import current_time as time
 
 
 class Device:
@@ -51,7 +51,7 @@ class Device:
             line += new_char
             if new_char == line_termination:
                 break
-            if time()-start_time > self.DEFAULTS['timeout']:
+            if (time()-start_time)*1 > self.DEFAULTS['timeout']:
                 raise Exception('Device timed out')
 
         return line.decode(self.DEFAULTS['encoding'])
@@ -65,7 +65,7 @@ class Device:
 
 
 if __name__ == '__main__':
-    dev = Device('/dev/ttyACM0')
+    dev = Device('COM5')
     dev.initialize()
     sleep(1)
     print(dev.idn())
