@@ -51,7 +51,7 @@ class Device:
             line += new_char
             if new_char == line_termination:
                 break
-            if time()-start_time > self.DEFAULTS['timeout']:
+            if time()-start_time > 1000*self.DEFAULTS['timeout']:
                 raise Exception('Device timed out')
 
         return line.decode(self.DEFAULTS['encoding'])
