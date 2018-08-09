@@ -59,10 +59,12 @@ class Device:
         return line.decode(self.DEFAULTS['encoding'])
 
     def query(self, message):
+		"""Writes and reads from the device"""
         self.write(message)
         return self.read()
 
     def finalize(self):
+		"""Closes the communication with the device"""
         self.rsc.close()
 
 
