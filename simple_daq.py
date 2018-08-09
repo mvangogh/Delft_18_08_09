@@ -62,15 +62,17 @@ class Device:
         return line.decode(self.DEFAULTS['encoding'])
 
     def query(self, message):
+		"""Writes and reads from the device"""
         self.write(message)
         return self.read()
 
     def finalize(self):
+		"""Closes the communication with the device"""
         self.rsc.close()
 
 
 if __name__ == '__main__':
-    dev = Device('COM6')
+    dev = Device('COM1')
     dev.initialize()
     sleep(1)
     print(dev.idn())
