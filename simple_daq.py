@@ -29,7 +29,6 @@ class Device:
 
     def get_analog_value(self, channel):
         message = 'IN:CH{}'.format(channel)
-        message = 'IN:CH6'
         return int(self.query(message))
 
     def set_analog_value(self, channel, value):
